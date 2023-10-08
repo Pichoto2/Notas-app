@@ -1,5 +1,18 @@
 .card-tittle{
-    overflow: hidden; 
+    max-width:83%;
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
+}
+.categoria {
+    padding: 4px 8px;
+    max-width:50%; 
+    overflow:hidden;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.dropdown-item{
+    cursor: pointer
 }
