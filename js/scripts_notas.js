@@ -145,8 +145,6 @@ function anadirNota(){
         document.getElementById("categoria-editarCard-"+i).value = dato.categoria
         i++
     })
-    document.getElementById("titulo-insertar").value = ""
-    document.getElementById("contenido-insertar").value = ""
     
 }
 
@@ -173,7 +171,6 @@ function agregarCategoria(i) {
             }
             selectCategoria.appendChild(option);
         });
-    inputNuevaCategoria.value = ""
     crearGraficas()
     }
 
@@ -265,8 +262,6 @@ function crearGraficas(){
     });
 }
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
     agregarCategoria(-1);
     anadirNota();
@@ -274,3 +269,11 @@ document.addEventListener("DOMContentLoaded", function () {
     crearGraficas();
 });
 
+$('#insertarFila').on('hidden.bs.modal', function(){
+    document.getElementById("titulo-insertar").value = ""
+    document.getElementById("contenido-insertar").value = ""
+})
+
+$('#insertarCategoria').on('hidden.bs.modal', function(){
+    document.getElementById("categoriaNueva-insertar").value = ""
+})
