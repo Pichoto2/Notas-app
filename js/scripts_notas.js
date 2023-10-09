@@ -144,6 +144,7 @@ function anadirNota(){
         crearGraficas();
         document.getElementById("categoria-editarCard-"+i).value = dato.categoria
         i++
+        console.log(i)
     })
     
 }
@@ -188,6 +189,7 @@ function editarNota(i){
 }
 
 function eliminarNota(i){
+    console.log(i)
     DATOS.splice(i,1)
     anadirNota()
 }
@@ -210,15 +212,14 @@ function contarCategorias(){
     DATOS.forEach(function(dato){
         nCategorias[categorias.indexOf(dato.categoria)]++
     });
-    console.log(nCategorias)
 }
 
 function crearGraficas(){
     const $graficaBarras = document.querySelector("#graficaBarras");
-    const $graficaCircular = document.querySelector("#graficaCircular")
+    const $graficaCircular = document.querySelector("#graficaCircular");
     
     const datosCategoriasBarras = {
-        label: "Número total",
+        label: '',
         data: nCategorias,
         backgroundColor: colorCategorias, 
         borderWidth: 1,
@@ -230,7 +231,6 @@ function crearGraficas(){
             labels: categorias,
             datasets: [
                 datosCategoriasBarras,
-                // Aquí más datos...
             ]
         },
         options: {
@@ -241,6 +241,9 @@ function crearGraficas(){
                     }
                 }],
             },
+            legend: {
+                display : false
+            }
         }
     });
 
@@ -251,12 +254,11 @@ function crearGraficas(){
     };
 
     new Chart($graficaCircular, {
-        type: 'pie',// Tipo de gráfica. Puede ser dougnhut o pie
+        type: 'pie',
         data: {
             labels: categorias,
             datasets: [
                 datosCategoriasCircular,
-                // Aquí más datos...
             ]
         },
     });
